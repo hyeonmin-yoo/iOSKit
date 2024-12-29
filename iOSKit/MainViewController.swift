@@ -9,9 +9,10 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    override func loadView() {
-        view = View()
-    }
+    private let items = ["First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Nineth", "Ten"]
+    private let mainView = MainViewController.View()
+    
+    override func loadView() { view = mainView }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,8 @@ class MainViewController: UIViewController {
     }
     
     private func setupViews() {
-        
+        mainView.tableView.dataSource = self
+        mainView.tableView.delegate = self
     }
     
     private func bind() {
@@ -29,10 +31,12 @@ class MainViewController: UIViewController {
 }
 
 // MARK: - View
-extension MainViewController {
+fileprivate extension MainViewController {
+    // MainView
     class View: UIView {
         let tableView: UITableView = {
             let tableView = UITableView()
+            tableView.register(MainTableViewCell.self, forCellReuseIdentifier: "cell")
             tableView.translatesAutoresizingMaskIntoConstraints = false
             tableView.rowHeight = 44
             tableView.separatorStyle = .none
@@ -54,12 +58,31 @@ extension MainViewController {
             setupViewLayouts()
         }
         private func setupViewLayouts() {
-            NSLayoutConstraint.activate { }
-            setupContentViewLayouts()
+            NSLayoutConstraint.activate {
+                constraint(equalToEdges: tableView)
+            }
         }
-        
-        private func setupContentViewLayouts() {
-            NSLayoutConstraint.activate { }
+    }
+}
+
+// MARK: - UITableViewDataSource
+extension MainViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MainTableViewCell else {
+            return MainTableViewCell()
         }
+        cell.configure(title: items[indexPath.row])
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension MainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Selected: \(items[indexPath.row])")
     }
 }
