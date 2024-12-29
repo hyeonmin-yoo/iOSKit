@@ -71,7 +71,7 @@ extension MainViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MainTableViewCell else {
             return MainTableViewCell()
         }
-        cell.configure(title: items[indexPath.row], hexColor: ViewColors.allCases[indexPath.row].rawValue)
+        cell.configure(title: Titles.allCases[indexPath.row].rawValue, hexColor: ViewColors.allCases[indexPath.row].rawValue)
         return cell
     }
 }
@@ -79,6 +79,6 @@ extension MainViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Selected: \(items[indexPath.row])")
+        print("Selected: \(Titles.allCases[indexPath.row].rawValue)")
     }
 }
