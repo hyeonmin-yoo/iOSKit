@@ -38,7 +38,7 @@ fileprivate extension MainViewController {
             let tableView = UITableView()
             tableView.register(MainTableViewCell.self, forCellReuseIdentifier: "cell")
             tableView.translatesAutoresizingMaskIntoConstraints = false
-            tableView.rowHeight = 44
+            tableView.rowHeight = 80
             tableView.separatorStyle = .none
             return tableView
         }()
@@ -58,9 +58,7 @@ fileprivate extension MainViewController {
             setupViewLayouts()
         }
         private func setupViewLayouts() {
-            NSLayoutConstraint.activate {
-                constraint(equalToEdges: tableView)
-            }
+            tableView.pinToSafeAreaLayoutGuideEdges(of: self)
         }
     }
 }

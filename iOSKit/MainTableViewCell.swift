@@ -37,12 +37,7 @@ class MainTableViewCell: UITableViewCell {
     }
     
     private func setupLayouts() {
-        NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-        ])
+        titleLabel.pinToEdges(of: contentView, margins: UIEdgeInsets(top: 8, left: 16, bottom: -8, right: -16))
     }
     
     func configure(title: String) {
