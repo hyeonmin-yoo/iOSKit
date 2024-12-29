@@ -8,8 +8,6 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
-    private let items = ["First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Nineth", "Ten"]
     private let mainView = MainViewController.View()
     
     override func loadView() { view = mainView }
@@ -38,7 +36,7 @@ fileprivate extension MainViewController {
             let tableView = UITableView()
             tableView.register(MainTableViewCell.self, forCellReuseIdentifier: "cell")
             tableView.translatesAutoresizingMaskIntoConstraints = false
-            tableView.rowHeight = 80
+            tableView.rowHeight = 100
             tableView.separatorStyle = .none
             return tableView
         }()
@@ -66,14 +64,14 @@ fileprivate extension MainViewController {
 // MARK: - UITableViewDataSource
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return Titles.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MainTableViewCell else {
             return MainTableViewCell()
         }
-        cell.configure(title: items[indexPath.row])
+        cell.configure(title: items[indexPath.row], hexColor: ViewColors.allCases[indexPath.row].rawValue)
         return cell
     }
 }
