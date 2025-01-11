@@ -80,5 +80,11 @@ extension MainViewController: UITableViewDataSource {
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected: \(Titles.allCases[indexPath.row].rawValue)")
+        switch indexPath.row {
+        case 0:
+            Navigator.push(.snackbar)
+        default:
+            return
+        }
     }
 }
