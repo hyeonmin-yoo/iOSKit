@@ -6,7 +6,7 @@
 //
 
 enum Titles: String, CaseIterable {
-    case first = "First"
+    case first = "Snackbar"
     case second = "Second"
     case third = "Third"
     case fourth = "Fourth"

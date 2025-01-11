@@ -19,7 +19,7 @@ import UIKit
 import UIKit
 
 @MainActor
-final class SnackBar: UIView {
+final class Snackbar: UIView {
     private let hostView: UIView?
     private let message: String
     private let style: Style
@@ -131,7 +131,7 @@ final class SnackBar: UIView {
     }()
 }
 
-extension SnackBar {
+extension Snackbar {
     enum Style {
         case success
         case warning

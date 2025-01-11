@@ -10,18 +10,19 @@ import UIKit
 ///
 enum ViewControllerType {
     case main
+    case snackbar
     
     var viewController: UIViewController {
         switch self {
         case .main: MainViewController()
-            
+        case .snackbar: SnackbarViewController()
         }
     }
     
     var type: UIViewController.Type {
         switch self {
         case .main: MainViewController.self
-            
+        case .snackbar: SnackbarViewController.self
         }
     }
 }
@@ -38,7 +39,7 @@ final class Navigator: UINavigationController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    static func push(_ type: ViewControllerType, animated: Bool = true, shouldDismissDialog: Bool = false) {
+    static func push(_ type: ViewControllerType, animated: Bool = true) {
         shared.pushViewController(type.viewController, animated: animated)
     }
     
