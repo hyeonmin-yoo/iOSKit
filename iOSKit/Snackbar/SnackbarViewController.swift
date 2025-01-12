@@ -29,6 +29,7 @@ class SnackbarViewController: UIViewController {
     @objc func buttonTapped(_ sender: UIButton) {
         switch (sender.tag, mainView.segmentedControl.selectedSegmentIndex) {
         case (0, 0):
+//            Snackbar(message: String(localized: "Top-Success"), style: .success).show(position: .top)
             Snackbar(message: String(localized: "Top-Success"), style: .success).show(position: .top)
         case (0, 1):
             Snackbar(message: String(localized: "Top-Warning"), style: .warning).show(position: .top)
@@ -51,7 +52,7 @@ fileprivate extension SnackbarViewController {
     class View: UIView {
         
         let segmentedControl: UISegmentedControl = {
-            var control = UISegmentedControl(items: ["Success", "Warning", "Error"])
+            var control = UISegmentedControl(items: [String(localized: "Success"), String(localized: "Warning"), String(localized: "Error")])
             control.selectedSegmentIndex = .zero
             control.translatesAutoresizingMaskIntoConstraints = false
             return control
@@ -60,7 +61,7 @@ fileprivate extension SnackbarViewController {
         let topButton: UIButton = {
             let button = UIButton(type: .system)
             button.translatesAutoresizingMaskIntoConstraints = false
-            button.setTitle("TOP", for: .normal)
+            button.setTitle(String(localized: "TOP"), for: .normal)
             button.setTitleColor(.white, for: .normal)
             button.backgroundColor = .orange
             button.layer.cornerRadius = 10
@@ -71,7 +72,7 @@ fileprivate extension SnackbarViewController {
         let bottomButton: UIButton = {
             let button = UIButton(type: .system)
             button.translatesAutoresizingMaskIntoConstraints = false
-            button.setTitle("BOTTOM", for: .normal)
+            button.setTitle(String(localized: "BOTTOM"), for: .normal)
             button.setTitleColor(.white, for: .normal)
             button.backgroundColor = .orange
             button.layer.cornerRadius = 10
