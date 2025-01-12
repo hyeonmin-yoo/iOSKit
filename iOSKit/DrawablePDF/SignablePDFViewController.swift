@@ -11,7 +11,6 @@ import PDFKit
 class SignablePDFViewController: UIViewController {
     private let mainView = SignablePDFViewController.View()
     private let overlayProvider = OverlayProvider()
-//    var imageSize: CGSize = .zero
     
     override func loadView() { view = mainView }
     
@@ -27,10 +26,7 @@ class SignablePDFViewController: UIViewController {
               let document = PDFDocument(url: url)
         else { return }
         mainView.pdfView.document = document
-//        if let page = document.page(at: 0) {
-//            let pageRect = page.bounds(for: .mediaBox)
-//            imageSize = pageRect.size
-//        }
+        
         mainView.deleteAllbutton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
         mainView.doneButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
     }
@@ -45,7 +41,7 @@ class SignablePDFViewController: UIViewController {
             if overlayProvider.isEmpty() == false {
                 overlayProvider.deleteAll()
             }
-        case 1:
+        case 1: break
             // TODO: Save locally as PDF file or send it to remote
         default: return
         }
@@ -80,7 +76,7 @@ fileprivate extension SignablePDFViewController {
         
         let deleteAllbutton: UIButton = {
             let button = UIButton(type: .system)
-            button.setTitle("Delete All", for: .normal)
+            button.setTitle(String(localized: "Delete All"), for: .normal)
             button.setTitleColor(.white, for: .normal)
             button.backgroundColor = .orange
             button.layer.cornerRadius = 10
@@ -91,7 +87,7 @@ fileprivate extension SignablePDFViewController {
         
         let doneButton: UIButton = {
             let button = UIButton(type: .system)
-            button.setTitle("Done", for: .normal)
+            button.setTitle(String(localized: "Done"), for: .normal)
             button.setTitleColor(.white, for: .normal)
             button.backgroundColor = .orange
             button.layer.cornerRadius = 10

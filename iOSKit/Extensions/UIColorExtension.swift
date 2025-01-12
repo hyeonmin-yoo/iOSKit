@@ -26,7 +26,7 @@ extension UIColor {
             
             self.init(red: red, green: green, blue: blue, alpha: 1.0)
         } else {
-            self.init(white: 1.0, alpha: 1.0) // 기본값: 흰색
+            self.init(white: 1.0, alpha: 1.0)
         }
     }
 }
