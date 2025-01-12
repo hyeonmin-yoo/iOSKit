@@ -11,11 +11,13 @@ import UIKit
 enum ViewControllerType {
     case main
     case snackbar
+    case sinablePdf
     
     var viewController: UIViewController {
         switch self {
         case .main: MainViewController()
         case .snackbar: SnackbarViewController()
+        case .sinablePdf: SignablePDFViewController()
         }
     }
     
@@ -23,6 +25,7 @@ enum ViewControllerType {
         switch self {
         case .main: MainViewController.self
         case .snackbar: SnackbarViewController.self
+        case .sinablePdf: SignablePDFViewController.self
         }
     }
 }
