@@ -54,7 +54,7 @@ final class Snackbar: UIView {
     }
 
     private func setupShadow() {
-        layer.shadowColor = UIColor(hex: "#303030").cgColor
+        layer.shadowColor = UIColor.snackbarShadow.cgColor
         layer.shadowOpacity = 1.0
         layer.shadowRadius = 24.0
         layer.shadowOffset.height = 1.0
@@ -139,9 +139,9 @@ extension Snackbar {
         
         var backgroundColor: UIColor {
             switch self {
-            case .success: UIColor(hex: "#6BBF59")
-            case .warning: UIColor(hex: "#E5A74D")
-            case .error: UIColor(hex: "#D94A4A")
+            case .success: .snackbarSuccess
+            case .warning: .snackbarWarning
+            case .error: .snackbarWarning
             }
         }
     }

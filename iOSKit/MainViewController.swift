@@ -83,6 +83,8 @@ extension MainViewController: UITableViewDelegate {
         switch indexPath.row {
         case 0:
             Navigator.push(.snackbar)
+        case 1:
+            Navigator.push(.sinablePdf)
         default:
             return
         }
