@@ -80,12 +80,8 @@ extension MainViewController: UITableViewDataSource {
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
-        case 0:
-            Navigator.push(.snackbar)
-        case 1:
-            Navigator.push(.sinablePdf)
-        default:
-            return
+        case 0: Navigator.push(.snackbar)
+        default: return
         }
     }
 }
