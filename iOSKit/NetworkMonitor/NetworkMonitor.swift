@@ -20,13 +20,13 @@ final class NetworkMonitor {
     deinit { pathMonitor.cancel() }
     
     static func start() {
+        shared.pathMonitor.start(queue: shared.queue)
         shared.pathMonitor.pathUpdateHandler = { path in
             if path.status != .satisfied {
                 print("Network disconnected: \(path.status)")
                 Task { await showOfflineAlert() }
             }
         }
-        shared.pathMonitor.start(queue: shared.queue)
     }
     
     static func stop() {
