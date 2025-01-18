@@ -1,0 +1,39 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "BOTTOM" : {
+
+    },
+    "Bottom-Error" : {
+
+    },
+    "Bottom-Success" : {
+
+    },
+    "Bottom-Warning" : {
+
+    },
+    "Error" : {
+
+    },
+    "Success" : {
+
+    },
+    "TOP" : {
+
+    },
+    "Top-Error" : {
+
+    },
+    "Top-Success" : {
+
+    },
+    "Top-Warning" : {
+
+    },
+    "Warning" : {
+
+    }
+  },
+  "version" : "1.0"
+}

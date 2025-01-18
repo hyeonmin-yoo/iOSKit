@@ -9,21 +9,21 @@ import UIKit
 
 class MainViewController: UIViewController {
     private let mainView = MainViewController.View()
-    
+
     override func loadView() { view = mainView }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupViews()
         bind()
     }
-    
+
     private func setupViews() {
         mainView.tableView.dataSource = self
         mainView.tableView.delegate = self
     }
-    
+
     private func bind() {
     }
 }
@@ -40,17 +40,17 @@ fileprivate extension MainViewController {
             tableView.separatorStyle = .none
             return tableView
         }()
-        
+
         override init(frame: CGRect) {
             super.init(frame: frame)
             backgroundColor = .white
             setupViews()
         }
-        
+
         required init?(coder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
-        
+
         private func setupViews() {
             [tableView].forEach(addSubview)
             setupViewLayouts()
@@ -66,7 +66,7 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Titles.allCases.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MainTableViewCell else {
             return MainTableViewCell()
@@ -79,12 +79,9 @@ extension MainViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Selected: \(Titles.allCases[indexPath.row].rawValue)")
         switch indexPath.row {
-        case 0:
-            Navigator.push(.snackbar)
-        default:
-            return
+        case 0: Navigator.push(.snackbar)
+        default: return
         }
     }
 }
