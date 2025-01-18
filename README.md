@@ -4,9 +4,3 @@
 
 ### Snackbar
 <img src="https://drive.google.com/uc?id=1JLhxEeh00ep5mIpZC0i3cOjYscRQ4viq" alt="Snackbar" width="200">
-
-### Signable DPF Viewer
-`required: iPad device with Apple Pencil`
-
-* Scrollable PDF Viewer with a finger and signable by Apple Pencil
-* Will add GIF later
