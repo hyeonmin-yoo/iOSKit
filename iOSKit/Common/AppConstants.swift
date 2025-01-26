@@ -8,7 +8,7 @@
 enum Titles: String, CaseIterable {
     case first = "Snackbar"
     case second = "Network Monitor"
-    case third = "Third"
+    case third = "Selective Drag and Drop Table View Cell"
     case fourth = "Fourth"
     case sixth = "Sixth"
     case seventh = "Seventh"
