@@ -12,12 +12,14 @@ enum ViewControllerType {
     case main
     case snackbar
     case networkMonitor
+    case selectiveDrag
     
     var viewController: UIViewController {
         switch self {
         case .main: MainViewController()
         case .snackbar: SnackbarViewController()
         case .networkMonitor: NetworkMonitorViewController()
+        case .selectiveDrag: SelectiveDragViewController()
         }
     }
     
@@ -26,6 +28,7 @@ enum ViewControllerType {
         case .main: MainViewController.self
         case .snackbar: SnackbarViewController.self
         case .networkMonitor: NetworkMonitorViewController.self
+        case .selectiveDrag: SelectiveDragViewController.self
         }
     }
 }
